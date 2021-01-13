@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve the GroupMe Bot
+After=network.target
+
+[Service]
+User=
+Group=www-data
+WorkingDirectory=
+Environment="PATH=GroupMeChatBot/env/bin"
+ExecStart=GroupMeChatBot/env/bin/gunicorn --workers 3 --bind unix:groupMeBot.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target

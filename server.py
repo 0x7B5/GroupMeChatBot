@@ -9,7 +9,7 @@ app = Flask(__name__, static_url_path="")
 
 bot_name = config['GROUPME']['Bot_Name']
 bot_ID = config['GROUPME']['Bot_ID']
-
+bot_host = config['APP']['Host']
 
 @app.route('/', methods=['POST'])
 def got_message():
@@ -31,3 +31,6 @@ def send_message(message):
           'text'   : message,
          }
   response = requests.post(url, data=data)
+
+if __name__ == "__main__":
+    app.run(host=bot_host)
