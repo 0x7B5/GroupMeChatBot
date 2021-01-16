@@ -25,7 +25,6 @@ def got_message():
 
 def send_message(message):
   url  = 'https://api.groupme.com/v3/bots/post'
-  print(bot_ID)
   data = {
           'bot_id' : bot_ID,
           'text'   : message,
